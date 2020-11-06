@@ -9,8 +9,9 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 app.use('/static', express.static('node_modules'));
-app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public');
   });
 
 const users = {}
