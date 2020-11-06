@@ -2,6 +2,7 @@
 var http = require('http');
 var express = require('express');
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 var server = http.createServer(app);
 // Pass a http.Server instance to the listen method
@@ -30,4 +31,6 @@ io.on("connection", socket => {
 //     console.log("App listening on PORT " + PORT);
 // });
 
-server.listen(3000)
+server.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
