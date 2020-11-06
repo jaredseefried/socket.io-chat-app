@@ -9,6 +9,9 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 app.use('/static', express.static('node_modules'));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+  });
 
 const users = {}
 
@@ -19,7 +22,7 @@ io.on("connection", socket => {
     })
     socket.on("send-chat-message", message => {
         // console.log(message);
-        socket.broadcast.emit("chat-message", {message: message, name: users[socket.id]})
+        socket.broadcast.emit("chat-message", { message: message, name: users[socket.id] })
     })
     socket.on("disconnect", name => {
         socket.broadcast.emit("user-disconnected", users[socket.id])
@@ -31,6 +34,6 @@ io.on("connection", socket => {
 //     console.log("App listening on PORT " + PORT);
 // });
 
-server.listen(PORT, function() {
+server.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
-  });
+});
