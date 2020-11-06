@@ -1,12 +1,9 @@
-
-var http = require('http');
 var express = require('express');
 var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 var PORT = process.env.PORT || 3000;
 
-var server = http.createServer(app);
-// Pass a http.Server instance to the listen method
-var io = require('socket.io').listen(server);
 
 app.use('/static', express.static('node_modules'));
 app.use(express.static('public'));
@@ -21,6 +18,7 @@ io.on("connection", socket => {
         users[socket.id] = name
         socket.broadcast.emit("user-connected", name)
     })
+    
     socket.on("send-chat-message", message => {
         // console.log(message);
         socket.broadcast.emit("chat-message", { message: message, name: users[socket.id] })
@@ -30,10 +28,6 @@ io.on("connection", socket => {
         delete users[socket.id]
     })
 })
-
-// var server = app.listen(PORT, function () {
-//     console.log("App listening on PORT " + PORT);
-// });
 
 server.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
