@@ -41,3 +41,30 @@
     font-weight: 500;
     color: white;
 }
+
+.login-page{
+    background-color: black;
+    height: 300px;
+    color: white;
+    padding-top: 8%;
+}
+
+.username{
+    width: 28%;
+    height: 49px;
+    background-color: black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    display: block;
+    margin: 0 auto;
+    color: white;
+    font-size: 24px;
+}
+
+.submit{
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
