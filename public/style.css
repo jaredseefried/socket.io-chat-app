@@ -1,23 +1,36 @@
+
+
 #message-container{
-    height: 82%;
+    height: 79%;
     background-color: #000;
-    width: 97%;
+    width: 100%;
     font-weight: 600;
     position: fixed;
     overflow: auto;
-    margin-top: 1%;
-    border-radius: 1%;
+    margin-top: 0%;
+    border-radius: 0%;
 } 
 
 #message-input{
-    width: 100%;
+    width: 97%;
     height: 51px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #212529;
+    border: none;
+    color: white;
+    padding-left: 14px;
 }
 
 #send-button{
-    width: 25%;
-    padding: 5px;
-    border: none;
+    margin: 13px;
+    background-color: #4CAF50;
+    height: 46px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    width: 11%;
 }
 
 #send-container{
@@ -27,16 +40,10 @@
     position: fixed;
     bottom: 0;
     margin-bottom: 2px;
+    background: #000;
 }
 
-#send-button{
-    margin-top: 12px;
-    background-color: #4CAF50;
-    height: 40px;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-}
+
 
 .login-page{
     background-color: #000;
@@ -44,13 +51,13 @@
     color: white;
     padding-top: 8%;
     position: fixed;
-    width: 96%;
+    width: 100%;
     display: block;
     margin: 0 auto;
 }
 
 .username{
-    width: 28%;
+    width: 50%;
     height: 49px;
     background-color: #000;
     border-top: none;
@@ -62,6 +69,8 @@
     color: white;
     font-size: 24px;
 }
+
+
 
 
 .submit{
@@ -78,26 +87,56 @@
 }
 
 .user-disconnected, .user-connected{
-    color: #03dac6;
+    color: #FFF;
     margin: 9px;
     width: 97%;
 }
 
 .received-message{
     max-width: 48%;
-    margin: 9px;
-    background-color: #343a40;
+    margin: 13px;
+    background-color: #4CAF50;
     color: white;
     border-radius: 8px;
     padding: 8px;
+    animation-duration: 0.5s;
+    animation-name: slideout;
 }
 
 .newMessage{
-    max-width: 51%;
+    max-width: 50%;
     margin: 9px;
     color: #fff;
-    background: #42b2f6;
+    background: #007bff;
     border-radius: 8px;
     padding: 8px;
-    margin-left: 48%;
+    margin-left: 45%;
+    /* font-family: 'Roboto', sans-serif; */
+    animation-duration: 0.5s;
+    animation-name: slidein;
 }
+
+
+@keyframes slidein {
+    from {
+      margin-left: 0%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-right: 100%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-right: 0%;
+      width: 100%;
+    }
+  }
