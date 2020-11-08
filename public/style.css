@@ -1,7 +1,7 @@
 
 
 #message-container{
-    height: 76%;
+    height: 77%;
     background-color: #000;
     width: 100%;
     font-weight: 600;
@@ -148,7 +148,7 @@
 
    @media only screen and (max-width: 600px) {
     #message-container{
-        height: 82%;
+        height: 80%;
   }
 }
 
