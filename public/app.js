@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  // var socket = io(); // For Production
-  var socket = io('http://localhost:3000/') // For Testing LocalHost Server
+  var socket = io(); // For Production
+  // var socket = io('http://localhost:3000/') // For Testing LocalHost Server
   const messageContainer = document.getElementById("message-container")
 
   const messageForm = document.getElementById("send-container");
