@@ -9,7 +9,7 @@ app.use('/static', express.static('node_modules'));
 app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public');
-  });
+});
 
 const users = {}
 
@@ -18,7 +18,7 @@ io.on("connection", socket => {
         users[socket.id] = name
         socket.broadcast.emit("user-connected", name)
     })
-    
+
     socket.on("send-chat-message", message => {
         // console.log(message);
         socket.broadcast.emit("chat-message", { message: message, name: users[socket.id] })
